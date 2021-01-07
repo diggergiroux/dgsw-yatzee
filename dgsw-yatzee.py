@@ -1,6 +1,7 @@
 import random
 
 print("Yatzee")
+points_taken = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 list_of_points = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 list_of_dice = [0, 0, 0, 0, 0]
 keepDice = "00000"
@@ -68,8 +69,15 @@ for x in range(0, 13):
                 die = keepDice[z]
                 if die == "0":
                     list_of_dice[z] = 0
-    selectBin = input("Select Bin to Use\n")
-    sBI = int(selectBin)
+    sBI = 0
+    while (sBI == 0):
+        selectBin = input("Select Bin to Use\n")
+        sBI = int(selectBin)
+        if sBI > 0 and sBI < 13:
+            if points_taken[sBI] == 1:
+                sBI = 0
+            else:
+                points_taken[sBI] = 1
     if sBI > 0 and sBI < 7:
         simple_number(sBI)
     elif sBI == 7:
