@@ -65,6 +65,8 @@ for x in range(0, 13):
         print(list_of_dice)
         if y < 2:
             keepDice = input("Select Dice to Keep\n")
+            if keepDice == "11111":
+                break
             for z in range(0, len(list_of_dice)):
                 die = keepDice[z]
                 if die == "0":
